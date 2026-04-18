@@ -11,11 +11,11 @@ import { t } from "@/lib/dictionary";
 gsap.registerPlugin(ScrollTrigger);
 
 const FRAMES = [
-  "https://images.unsplash.com/photo-1580657018950-c7f7d6a6d990?w=1800&q=90",
-  "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1800&q=90",
-  "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=1800&q=90",
-  "https://images.unsplash.com/photo-1598808503746-f34c53b9323e?w=1800&q=90",
-  "https://images.unsplash.com/photo-1445205170230-053b83016050?w=1800&q=90",
+  "/images/atelier/reception.jpg",
+  "/images/atelier/tools-flatlay.jpg",
+  "/images/atelier/brother-machine.jpg",
+  "/images/atelier/suit-buttons.jpg",
+  "/images/atelier/workstation.jpg",
 ];
 
 interface Props { locale: Locale; }

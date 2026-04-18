@@ -45,9 +45,9 @@ export default function ServicesRail({ locale }: Props) {
           <p className="eyebrow mb-6">— {lang.services.eyebrow}</p>
           <h2 className="font-display text-[clamp(2.8rem,8vw,6.5rem)] leading-[0.94] tracking-[-0.03em] text-[var(--color-ink)] text-balance">
             {locale === "de" ? (
-              <>Vier Disziplinen. <span className="font-italic-display text-[var(--color-cognac)]">Ein</span> Standard.</>
+              <>Alles, was <span className="font-italic-display text-[var(--color-cognac)]">mit</span> Stoff zu tun hat.</>
             ) : (
-              <>أربع حِرف. <span className="font-italic-display text-[var(--color-cognac)]">معيار</span> واحد.</>
+              <>كلُّ ما <span className="font-italic-display text-[var(--color-cognac)]">يتعلّق</span> بالقماش.</>
             )}
           </h2>
         </div>

@@ -8,122 +8,147 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    id: "massanzuege",
+    id: "anderungen",
     numeral: "I",
-    image:
-      "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=1400&q=85",
+    image: "/images/atelier/tools-flatlay.jpg",
     de: {
-      title: "Maßanzüge",
-      tagline: "Der Anzug, der Ihnen gehört.",
+      title: "Änderungen",
+      tagline: "Damit jedes Stück wieder passt.",
       body:
-        "Von der ersten Messung bis zur letzten Naht — jeder Anzug entsteht ausschließlich für Sie. Wir wählen gemeinsam Stoff, Schnitt und Details, und unser Team fertigt das Stück in geduldiger Handarbeit.",
+        "Das Herz unseres Ateliers. Hosen kürzen, Taillen enger, Ärmel anpassen, Kleider umarbeiten — wir nehmen jedes Stück in die Hand, ob Jeans aus dem Kaufhaus oder Lieblingsjacke aus dem Schrank.",
       bullets: [
-        "Persönliche Maßanfertigung",
-        "Edle italienische & britische Stoffe",
-        "Zwei Anproben, eine Passform fürs Leben",
-        "Canvas-Konstruktion auf Wunsch",
-      ],
-    },
-    ar: {
-      title: "بدلات حسب الطلب",
-      tagline: "بدلة تحمل اسمك وحدك.",
-      body:
-        "من أول قياس إلى آخر غرزة — كل بدلة تُخاط لك وحدك. نختار معاً القماش والقَصّ والتفاصيل، ويصنع فريقنا القطعة بصبر ودقّة يدوية.",
-      bullets: [
-        "تفصيل شخصي بالكامل",
-        "أقمشة إيطالية وبريطانية راقية",
-        "بروفتان اثنتان وقَصّة ترافقك سنوات",
-        "هيكل كانفاس حسب الطلب",
-      ],
-    },
-  },
-  {
-    id: "kleider",
-    numeral: "II",
-    image:
-      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=1400&q=85",
-    de: {
-      title: "Kleider nach Maß",
-      tagline: "Eleganz, die sich trägt wie Luft.",
-      body:
-        "Ob Abendkleid, Brautkleid oder das eine Lieblingsstück — wir entwerfen jedes Kleid gemeinsam mit Ihnen. Silhouette, Material, Verarbeitung: jedes Detail spiegelt Ihre Persönlichkeit.",
-      bullets: [
-        "Abendkleider & Brautkleider",
-        "Festkleider nach persönlichem Entwurf",
-        "Feinste Seiden, Spitzen, Wolltuche",
-        "Kurzfristige Termine auf Anfrage",
-      ],
-    },
-    ar: {
-      title: "فساتين حسب القياس",
-      tagline: "أناقة تُلبَس كأنّها نسمة.",
-      body:
-        "فستان سهرة أو عرس أو قطعتك المفضّلة — نصمّمها معك. القوام والقماش والتفاصيل، كلّها تعكس شخصيّتك.",
-      bullets: [
-        "فساتين سهرة وأعراس",
-        "فساتين مناسبات بتصميم شخصي",
-        "حرير وأقمشة دانتيل وصوف فاخرة",
-        "مواعيد عاجلة عند الطلب",
-      ],
-    },
-  },
-  {
-    id: "anpassungen",
-    numeral: "III",
-    image:
-      "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=1400&q=85",
-    de: {
-      title: "Umbauten & Anpassungen",
-      tagline: "Damit jedes Kleidungsstück wieder passt.",
-      body:
-        "Hosen kürzen, Jacken enger stellen, Kleider umarbeiten — wir behandeln Ihre Lieblingsstücke mit derselben Sorgfalt wie eine Maßanfertigung. Schnell, präzise, unsichtbar.",
-      bullets: [
-        "Hosen- und Ärmelkürzungen",
+        "Hosen und Ärmel kürzen",
         "Taillierung & Weitenänderung",
-        "Reißverschlüsse & Futter",
-        "Reparatur und Wiederherstellung",
+        "Kleider und Röcke umarbeiten",
+        "Meist innerhalb weniger Tage fertig",
       ],
     },
     ar: {
-      title: "تعديلات وتفصيلات",
-      tagline: "حتى تعود كلّ قطعة على قياسك.",
+      title: "تعديلات",
+      tagline: "لتعود كلّ قطعة على مقاسك.",
       body:
-        "تقصير بنطال، تضييق جاكيت، تعديل فستان — نعامل قطعك المفضّلة بالعناية ذاتها التي نمنحها لقطعة مفصّلة. سريع ودقيق وغير مرئي.",
+        "قلب أتوليييهنا. نُقصّر البناطيل، نُضيّق الخصر، نُعدّل الأكمام، نُعيد خياطة الفساتين — أيّ قطعة: من جينز الأسواق إلى الجاكيت المفضّل في خزانتك.",
       bullets: [
         "تقصير بناطيل وأكمام",
         "تضييق وتوسيع",
-        "سحّابات وبطانات",
-        "ترميم وإصلاح",
+        "تعديل فساتين وتنّورات",
+        "عادةً جاهزة خلال أيام",
       ],
     },
   },
   {
-    id: "zubehoer",
-    numeral: "IV",
-    image:
-      "https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?w=1400&q=85",
+    id: "reparaturen",
+    numeral: "II",
+    image: "/images/atelier/button-press.jpg",
     de: {
-      title: "Zubehör & Details",
-      tagline: "Das Detail, das alles verändert.",
+      title: "Reparaturen & Reißverschlüsse",
+      tagline: "Unsichtbar geflickt, nicht ersetzt.",
       body:
-        "Krawatten, Einstecktücher, Schals — individuell gefertigt aus dem Stoff Ihres Anzugs oder eines anderen Lieblingsmaterials. Die kleinen Dinge machen den Herrn, die Dame, den Stil.",
+        "Der Reißverschluss an der Lieblingsjacke ist kaputt? Die Naht an der Sporttasche geplatzt? Ein Knopf fehlt? Wir reparieren, statt wegzuwerfen — und die Stelle sieht aus, als wäre nie etwas gewesen.",
       bullets: [
-        "Maßkrawatten & Fliegen",
-        "Einstecktücher aus Seide",
-        "Schals aus Kaschmir & Wolle",
-        "Passend zum Anzug gefertigt",
+        "Reißverschluss-Wechsel (alle Größen)",
+        "Nähte, Risse, Löcher unsichtbar schließen",
+        "Knöpfe ersetzen oder neu annähen",
+        "Leder- und Kunstleder-Reparatur",
       ],
     },
     ar: {
-      title: "إكسسوارات وتفاصيل",
-      tagline: "التفصيل الصغير يُغيّر كلّ شيء.",
+      title: "إصلاحات وسحّابات",
+      tagline: "نرقَعُ بلا أثرٍ، ولا نستبدل.",
       body:
-        "ربطات عنق، محارم جيب، شالات — كلّها مصنوعة من قماش بدلتك أو من قماشك المفضّل. التفاصيل هي التي تصنع الأسلوب.",
+        "سحّابُ جاكيتك المفضّلة لا يعمل؟ خياطة الحقيبة انفتقت؟ زرٌّ ناقص؟ نُصلح بدل أن نُلقي — ويعود الموضع كأنّ شيئاً لم يكن.",
       bullets: [
-        "ربطات عنق وفيونكات مفصّلة",
-        "محارم جيب حرير",
-        "شالات كشمير وصوف",
-        "منسجمة مع بدلتك",
+        "تبديل السحّابات بجميع القياسات",
+        "إغلاق الخياطات والفتوق والثقوب بلا أثر",
+        "تبديل الأزرار وتثبيتها",
+        "إصلاح الجلد والجلد الصناعي",
+      ],
+    },
+  },
+  {
+    id: "bestickung",
+    numeral: "III",
+    image: "/images/atelier/embroidery-machine.jpg",
+    de: {
+      title: "Bestickung",
+      tagline: "Ihr Name, Ihr Logo — gestickt statt gedruckt.",
+      body:
+        "Mit unserer Happy-Industriestickmaschine besticken wir T-Shirts, Arbeitskleidung, Handtücher und Stoffe mit Namen und Logos. Langlebig, waschfest, hochwertig — perfekt für Vereine, Firmen und Gastgeschenke.",
+      bullets: [
+        "Namen und Initialen",
+        "Firmenlogos auf Berufskleidung",
+        "Vereinsemblem und Mannschaftstrikots",
+        "Kleinauflagen ab einem Stück",
+      ],
+    },
+    ar: {
+      title: "تطريز",
+      tagline: "اسمك، شعارُك — تطريزاً لا طبعاً.",
+      body:
+        "نُطرّز القمصان وملابس العمل والمناشف والأقمشة بالأسماء والشعارات عبر ماكينة Happy الصناعية. خياطة متينة تتحمّل الغسيل — مثالية للأندية والشركات والهدايا.",
+      bullets: [
+        "أسماء وأحرف أولى",
+        "شعارات شركات على الزيّ الرسمي",
+        "شارات أندية وقمصان فرق",
+        "حتى قطعة واحدة",
+      ],
+    },
+  },
+  {
+    id: "vorhaenge",
+    numeral: "IV",
+    image: "/images/atelier/workstation.jpg",
+    de: {
+      title: "Vorhänge",
+      tagline: "Für Krankenhäuser, Restaurants, Säle — und Zuhause.",
+      body:
+        "Wir fertigen und ändern Vorhänge in allen Größen: vom Patientenzimmer über den Restaurantsaal bis zum Wohnzimmerfenster. Inklusive Zuschnitt, Säumen, Bänder und Ringe.",
+      bullets: [
+        "Neu anfertigen nach Maß",
+        "Kürzen und Anpassen bestehender Vorhänge",
+        "Objektaufträge: Klinik, Gastronomie, Halle",
+        "Transparent, blickdicht, Verdunklung",
+      ],
+    },
+    ar: {
+      title: "ستائر",
+      tagline: "للمستشفيات والمطاعم والقاعات — والبيوت أيضاً.",
+      body:
+        "نخيط ونُعدّل الستائر بجميع القياسات: من غرف المرضى إلى قاعات المطاعم إلى نوافذ غرف المعيشة. يشمل القصّ والتَكعيب والأشرطة والحلقات.",
+      bullets: [
+        "خياطة جديدة حسب المقاس",
+        "تقصير وتعديل ستائر قائمة",
+        "مشاريع: عيادات ومطاعم وقاعات",
+        "شفّافة أو عاتمة أو كاتمة للضوء",
+      ],
+    },
+  },
+  {
+    id: "massanfertigung",
+    numeral: "V",
+    image: "/images/atelier/suit-buttons.jpg",
+    de: {
+      title: "Maßanfertigung",
+      tagline: "Wenn Sie es wirklich als Ihres wollen.",
+      body:
+        "Neben dem Alltag im Atelier fertigen wir auch komplette Stücke nach Maß — Anzüge, Kleider, Festgarderobe. Persönliche Beratung, zwei bis drei Anproben, das Stück entsteht ausschließlich für Sie.",
+      bullets: [
+        "Maßanzüge und Sakkos",
+        "Abendkleider & Festgarderobe",
+        "Eigener Entwurf oder nach Vorbild",
+        "Zwei bis drei Anproben",
+      ],
+    },
+    ar: {
+      title: "تفصيل حسب الطلب",
+      tagline: "حين تريدها لك وحدك.",
+      body:
+        "إلى جانب يوميات الأتولييه، نُفصّل القطع كاملة — بدلات، فساتين، أزياء المناسبات. استشارة شخصية وبروفتان إلى ثلاث، والقطعة تُخاط لك وحدك.",
+      bullets: [
+        "بدلات وسترات حسب الطلب",
+        "فساتين سهرة وأزياء مناسبات",
+        "تصميم خاصّ أو نقل عن نموذج",
+        "بروفتان إلى ثلاث",
       ],
     },
   },

@@ -2,93 +2,109 @@ export interface GalleryItem {
   id: string;
   src: string;
   alt: { de: string; ar: string };
-  category: "anzug" | "kleid" | "detail" | "atelier";
+  category: "anderung" | "anzug" | "kleid" | "detail" | "atelier";
   aspect: "portrait" | "landscape" | "square";
 }
 
 export const gallery: GalleryItem[] = [
   {
     id: "g1",
-    src: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1200&q=85",
-    alt: { de: "Dreiteiler in Marineblau", ar: "بدلة ثلاثية باللون الكحلي" },
-    category: "anzug",
+    src: "/images/atelier/suit-buttons.jpg",
+    alt: {
+      de: "Sakko-Manschetten — Knopfdetail nach der Anpassung",
+      ar: "كمّات جاكيت — تفاصيل الأزرار بعد التعديل",
+    },
+    category: "detail",
     aspect: "portrait",
   },
   {
     id: "g2",
-    src: "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=1200&q=85",
-    alt: { de: "Handgenähtes Knopfloch", ar: "عروة مخيطة يدوياً" },
-    category: "detail",
-    aspect: "square",
+    src: "/images/atelier/brother-machine.jpg",
+    alt: {
+      de: "Brother Industriemaschine im Atelier",
+      ar: "ماكينة خياطة برذر الصناعية في الأتولييه",
+    },
+    category: "atelier",
+    aspect: "portrait",
   },
   {
     id: "g3",
-    src: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=1200&q=85",
-    alt: { de: "Abendkleid in Seide", ar: "فستان سهرة من الحرير" },
+    src: "/images/atelier/plaid-dress.jpg",
+    alt: {
+      de: "Kariertes Kinderkleid — angepasst auf Größe",
+      ar: "فستان أطفال مقلّم — بعد تعديل القياس",
+    },
     category: "kleid",
     aspect: "portrait",
   },
   {
     id: "g4",
-    src: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=85",
-    alt: { de: "Stoffauswahl im Atelier", ar: "اختيار الأقمشة في الأتولييه" },
+    src: "/images/atelier/tools-flatlay.jpg",
+    alt: {
+      de: "Werkzeug des Schneiders — Schere, Maßband, Nahttrenner",
+      ar: "أدوات الخيّاط — مقصّات ومتر ونازع غُرز",
+    },
     category: "atelier",
     aspect: "landscape",
   },
   {
     id: "g5",
-    src: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1200&q=85",
-    alt: { de: "Maßband und Kreide", ar: "متر التفصيل والطباشير" },
-    category: "atelier",
-    aspect: "square",
-  },
-  {
-    id: "g6",
-    src: "https://images.unsplash.com/photo-1598808503746-f34c53b9323e?w=1200&q=85",
-    alt: { de: "Anprobe — Schulternaht", ar: "بروفة — خياطة الكتف" },
-    category: "detail",
+    src: "/images/atelier/polka-dress.jpg",
+    alt: {
+      de: "Punktekleid mit Tüllsaum — Maßanfertigung",
+      ar: "فستان منقّط بحاشية تول — تفصيل",
+    },
+    category: "kleid",
     aspect: "portrait",
   },
   {
+    id: "g6",
+    src: "/images/atelier/embroidery-machine.jpg",
+    alt: {
+      de: "Stickmaschine — Namen und Logos auf Stoff",
+      ar: "ماكينة تطريز — أسماء وشعارات على القماش",
+    },
+    category: "detail",
+    aspect: "landscape",
+  },
+  {
     id: "g7",
-    src: "https://images.unsplash.com/photo-1519241047957-be31d7379a5d?w=1200&q=85",
-    alt: { de: "Hochzeitsanzug", ar: "بدلة عرس" },
+    src: "/images/atelier/yellow-suit-form.jpg",
+    alt: {
+      de: "Gelber Zweiteiler auf der Schneiderpuppe",
+      ar: "طقم أصفر على كرّاكة الخياطة",
+    },
     category: "anzug",
     aspect: "portrait",
   },
   {
     id: "g8",
-    src: "https://images.unsplash.com/photo-1582142306909-195724d33ffc?w=1200&q=85",
-    alt: { de: "Seidenkrawatte", ar: "ربطة عنق من الحرير" },
+    src: "/images/atelier/button-press.jpg",
+    alt: {
+      de: "Knopfpresse — für präzise Knopfanbringung",
+      ar: "مكبس الأزرار — لتركيب دقيق",
+    },
     category: "detail",
-    aspect: "square",
-  },
-  {
-    id: "g9",
-    src: "https://images.unsplash.com/photo-1508243771214-6e95d137426b?w=1200&q=85",
-    alt: { de: "Kleid in Creme", ar: "فستان بلون الكريم" },
-    category: "kleid",
     aspect: "portrait",
   },
   {
-    id: "g10",
-    src: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=1200&q=85",
-    alt: { de: "Sakko — Revers-Detail", ar: "تفصيل الياقة" },
-    category: "detail",
-    aspect: "landscape",
-  },
-  {
-    id: "g11",
-    src: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200&q=85",
-    alt: { de: "Stoffrollen", ar: "لفائف أقمشة" },
+    id: "g9",
+    src: "/images/atelier/workstation.jpg",
+    alt: {
+      de: "Arbeitsplatz im Atelier — Maschinen und Garn",
+      ar: "طاولة العمل في الأتولييه — مكائن وخيوط",
+    },
     category: "atelier",
     aspect: "landscape",
   },
   {
-    id: "g12",
-    src: "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=1200&q=85",
-    alt: { de: "Maßanzug in Anthrazit", ar: "بدلة بلون الفحم" },
-    category: "anzug",
-    aspect: "portrait",
+    id: "g10",
+    src: "/images/atelier/reception.jpg",
+    alt: {
+      de: "Atelier Keba — Empfang und Garderobe",
+      ar: "أتولييه كيبا — الاستقبال والخزانة",
+    },
+    category: "atelier",
+    aspect: "landscape",
   },
 ];

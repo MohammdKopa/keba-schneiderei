@@ -91,8 +91,8 @@ export default function Hero({ locale }: Props) {
     return () => ctx.revert();
   }, { scope: ref });
 
-  const line1 = locale === "de" ? "Maßarbeit" : "تفصيلٌ";
-  const line2 = locale === "de" ? "die bleibt" : "يبقى معك";
+  const line1 = locale === "de" ? "Änderungen" : "تعديلاتٌ";
+  const line2 = locale === "de" ? "die sitzen" : "تليقُ بك";
 
   const splitLetters = (s: string) =>
     s.split("").map((ch, i) => (
@@ -102,8 +102,8 @@ export default function Hero({ locale }: Props) {
     ));
 
   const marqueeText = locale === "de"
-    ? ["Maßschneiderei", "· Marl · 2022 —", "Ahmad Keba", "· Handwerk"]
-    : ["تفصيل راقٍ", "· مارل · ٢٠٢٢ —", "أحمد كيبا", "· حرفة"];
+    ? ["Änderungen · Bestickung", "· Marl · 2022 —", "Ahmad Keba", "· Reparaturen"]
+    : ["تعديلات · تطريز", "· مارل · ٢٠٢٢ —", "أحمد كيبا", "· إصلاحات"];
 
   return (
     <section
@@ -132,17 +132,10 @@ export default function Hero({ locale }: Props) {
       {/* Full-bleed media */}
       <div data-hero-media-mask className="absolute inset-0 z-[1]">
         <div data-hero-media-inner className="absolute inset-0 will-change-transform">
-          <video
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay muted loop playsInline
-            poster="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=2400&q=90"
-          >
-            <source src="/videos/hero.mp4" type="video/mp4" />
-          </video>
           <Image
-            src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=2400&q=90"
-            alt={locale === "de" ? "Atelier Keba — Maßanfertigung Detail" : "أتولييه كيبا — تفصيل"}
-            fill priority sizes="100vw" className="object-cover -z-10"
+            src="/images/atelier/yellow-suit-form.jpg"
+            alt={locale === "de" ? "Atelier Keba — Zweiteiler auf der Schneiderpuppe mit Maßband" : "أتولييه كيبا — طقم على الكرّاكة مع متر التفصيل"}
+            fill priority sizes="100vw" className="object-cover"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-paper)]/40 via-[var(--color-paper)]/0 to-[var(--color-paper)]/90" />

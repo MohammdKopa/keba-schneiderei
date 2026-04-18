@@ -95,7 +95,7 @@ export default function Philosophy({ locale }: Props) {
       <div data-phil-pin className="relative h-[100svh] flex items-center justify-center overflow-hidden">
         <div data-phil-bg className="absolute inset-0 opacity-[0.18] will-change-transform">
           <Image
-            src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=2400&q=90"
+            src="/images/atelier/tools-flatlay.jpg"
             alt="" fill sizes="100vw" className="object-cover"
           />
         </div>

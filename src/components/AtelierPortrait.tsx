@@ -91,18 +91,11 @@ export default function AtelierPortrait({ locale }: Props) {
         <div className="lg:col-span-5 lg:col-start-1 lg:sticky lg:top-28">
           <div data-at-image-mask className="relative aspect-[4/5] overflow-hidden">
             <div data-at-image-inner className="absolute inset-0 will-change-transform">
-              <video
-                className="absolute inset-0 w-full h-full object-cover"
-                autoPlay muted loop playsInline
-                poster="https://images.unsplash.com/photo-1580657018950-c7f7d6a6d990?w=1600&q=90"
-              >
-                <source src="/videos/atelier.mp4" type="video/mp4" />
-              </video>
               <Image
-                src="https://images.unsplash.com/photo-1580657018950-c7f7d6a6d990?w=1600&q=90"
+                src="/images/atelier/brother-machine.jpg"
                 alt={`${lang.atelier.title} — ${lang.atelier.subtitle}`}
                 fill sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover -z-10"
+                className="object-cover"
               />
             </div>
           </div>

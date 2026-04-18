@@ -43,32 +43,82 @@ const amiri = Amiri({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kebaschneiderei.com"),
+  metadataBase: new URL(business.siteUrl),
   title: {
-    default: "Keba Schneiderei — Maßschneiderei in Marl",
+    default: "Keba Schneiderei — Änderungsschneiderei in Marl",
     template: "%s · Keba Schneiderei",
   },
   description:
-    "Maßgeschneiderte Anzüge, Kleider nach Maß und Änderungen. Das Atelier von Ahmad Keba in Marl — traditionelles Handwerk, modernes Design. Seit 2022.",
+    "Änderungen, Bestickung, Reparaturen, Vorhänge und Maßanfertigung in Marl. Das Atelier von Ahmad Keba — über 30 Jahre Erfahrung. Deutsch · Arabisch · Englisch.",
+  applicationName: "Keba Schneiderei",
+  authors: [{ name: business.owner }],
+  creator: business.owner,
+  publisher: business.name,
   keywords: [
-    "Maßschneiderei Marl",
-    "Schneider Marl",
-    "Maßanzug Marl",
     "Änderungsschneiderei Marl",
+    "Schneider Marl",
+    "Hosen kürzen Marl",
+    "Reißverschluss wechseln Marl",
+    "Bestickung Marl",
+    "Logo sticken Marl",
+    "Vorhänge nähen Marl",
+    "Maßschneiderei Marl",
+    "Maßanzug Marl",
+    "Brautkleid Änderung Marl",
     "Ahmad Keba",
-    "Brautkleid Marl",
-    "Bespoke Tailor NRW",
+    "Schneider Recklinghausen",
+    "Schneider Ruhrgebiet",
+    "خياط مارل",
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Keba Schneiderei — Maßschneiderei in Marl",
-    description: "Das Atelier von Ahmad Keba — traditionelles Handwerk, modernes Design.",
+    title: "Keba Schneiderei — Änderungsschneiderei in Marl",
+    description:
+      "Änderungen, Bestickung, Reparaturen und Maßanfertigung. Das Atelier von Ahmad Keba in Marl — seit 2022.",
+    url: business.siteUrl,
     type: "website",
     locale: "de_DE",
     alternateLocale: "ar",
-    siteName: "Keba Schneiderei",
+    siteName: business.name,
+    images: [
+      {
+        url: "/images/atelier/yellow-suit-form.jpg",
+        width: 1200,
+        height: 1600,
+        alt: "Atelier Keba — Zweiteiler auf der Schneiderpuppe mit Maßband",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Keba Schneiderei — Änderungsschneiderei in Marl",
+    description:
+      "Änderungen, Bestickung, Reparaturen und Maßanfertigung. Ahmad Keba · Marl · seit 2022.",
+    images: ["/images/atelier/yellow-suit-form.jpg"],
   },
   alternates: {
-    languages: { de: "/", ar: "/ar" },
+    canonical: "/",
+    languages: {
+      "de-DE": "/",
+      "ar": "/ar",
+      "x-default": "/",
+    },
+  },
+  category: "clothing alteration",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
 };
 
@@ -86,10 +136,15 @@ const dayMap: Record<string, string> = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "TailorShop",
+  "@id": `${business.siteUrl}/#business`,
   name: business.name,
+  alternateName: "Keba Änderungsschneiderei",
+  description:
+    "Änderungsschneiderei und Maßschneiderei in Marl. Änderungen, Bestickung, Reparaturen, Vorhänge und Maßanfertigung — seit 2022.",
   founder: business.owner,
   foundingDate: String(business.founded),
-  image: `${business.siteUrl}/og.jpg`,
+  image: [`${business.siteUrl}/images/atelier/yellow-suit-form.jpg`],
+  logo: `${business.siteUrl}/logo.png`,
   telephone: business.phoneHref,
   email: business.email,
   address: {
@@ -106,7 +161,28 @@ const jsonLd = {
   },
   url: business.siteUrl,
   sameAs: [business.instagram],
-  priceRange: "€€€",
+  priceRange: "€€",
+  currenciesAccepted: "EUR",
+  paymentAccepted: "Cash, EC, Überweisung",
+  areaServed: [
+    { "@type": "City", name: "Marl" },
+    { "@type": "City", name: "Recklinghausen" },
+    { "@type": "City", name: "Haltern am See" },
+    { "@type": "City", name: "Dorsten" },
+    { "@type": "AdministrativeArea", name: "Ruhrgebiet" },
+  ],
+  knowsLanguage: ["de", "ar", "en"],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Leistungen",
+    itemListElement: [
+      { "@type": "OfferCatalog", name: "Änderungen & Anpassungen" },
+      { "@type": "OfferCatalog", name: "Reparaturen & Reißverschlüsse" },
+      { "@type": "OfferCatalog", name: "Bestickung (Namen & Logos)" },
+      { "@type": "OfferCatalog", name: "Vorhänge nach Maß" },
+      { "@type": "OfferCatalog", name: "Maßanfertigung (Anzüge & Kleider)" },
+    ],
+  },
   openingHoursSpecification: openingHours.flatMap((oh) =>
     oh.sessions.map((s) => {
       const [opens, closes] = s.split("–").map((x) => x.trim());

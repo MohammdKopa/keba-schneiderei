@@ -8,7 +8,6 @@ import MobileActionBar from "./MobileActionBar";
 import SmoothScroll from "./SmoothScroll";
 import Cursor from "./Cursor";
 import ScrollProgress from "./ScrollProgress";
-import PageIntro from "./PageIntro";
 import type { Locale } from "@/lib/business";
 
 function localeFromPath(pathname: string | null): Locale {
@@ -28,7 +27,6 @@ export default function LocalizedShell({ children }: { children: React.ReactNode
 
   return (
     <>
-      <PageIntro />
       <SmoothScroll />
       <Cursor />
       <ScrollProgress />
