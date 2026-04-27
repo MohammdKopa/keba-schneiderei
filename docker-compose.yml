@@ -1,0 +1,9 @@
+services:
+  keba-schneiderei:
+    build: .
+    container_name: keba-schneiderei
+    restart: always
+    ports:
+      - "3302:3000"
+    environment:
+      - NODE_ENV=production
