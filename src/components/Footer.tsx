@@ -63,8 +63,8 @@ export default function Footer({ locale }: Props) {
         <div className="mt-16 pt-6 border-t border-[var(--color-paper)]/10 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-[var(--color-paper)]/45">
           <p>© {new Date().getFullYear()} Keba Schneiderei · {lang.footer.rights}</p>
           <p className="flex gap-6">
-            <a href="#kontakt" className="hover:text-[var(--color-paper)]/80">{lang.footer.impressum}</a>
-            <a href="#kontakt" className="hover:text-[var(--color-paper)]/80">{lang.footer.datenschutz}</a>
+            <Link href={locale === "ar" ? "/ar/impressum" : "/impressum"} className="hover:text-[var(--color-paper)]/80">{lang.footer.impressum}</Link>
+            <Link href={locale === "ar" ? "/ar/datenschutz" : "/datenschutz"} className="hover:text-[var(--color-paper)]/80">{lang.footer.datenschutz}</Link>
           </p>
         </div>
       </div>

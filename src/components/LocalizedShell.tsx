@@ -8,6 +8,7 @@ import MobileActionBar from "./MobileActionBar";
 import SmoothScroll from "./SmoothScroll";
 import Cursor from "./Cursor";
 import ScrollProgress from "./ScrollProgress";
+import CookieBanner from "./CookieBanner";
 import type { Locale } from "@/lib/business";
 
 function localeFromPath(pathname: string | null): Locale {
@@ -34,6 +35,7 @@ export default function LocalizedShell({ children }: { children: React.ReactNode
       <main className="flex-1 pb-20 lg:pb-0">{children}</main>
       <MobileActionBar locale={locale} />
       <Footer locale={locale} />
+      <CookieBanner locale={locale} />
     </>
   );
 }

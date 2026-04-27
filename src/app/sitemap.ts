@@ -28,5 +28,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
+    {
+      url: `${business.siteUrl}/impressum`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+      alternates: { languages: { de: `${business.siteUrl}/impressum`, ar: `${business.siteUrl}/ar/impressum` } },
+    },
+    {
+      url: `${business.siteUrl}/datenschutz`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+      alternates: { languages: { de: `${business.siteUrl}/datenschutz`, ar: `${business.siteUrl}/ar/datenschutz` } },
+    },
+    {
+      url: `${business.siteUrl}/ar/impressum`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.2,
+      alternates: { languages: { de: `${business.siteUrl}/impressum`, ar: `${business.siteUrl}/ar/impressum` } },
+    },
+    {
+      url: `${business.siteUrl}/ar/datenschutz`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.2,
+      alternates: { languages: { de: `${business.siteUrl}/datenschutz`, ar: `${business.siteUrl}/ar/datenschutz` } },
+    },
   ];
 }

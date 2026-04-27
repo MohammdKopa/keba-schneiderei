@@ -100,6 +100,19 @@ export const dict = {
       impressum: "Impressum",
       datenschutz: "Datenschutz",
     },
+    cookies: {
+      title: "Hinweis zu Cookies",
+      body:
+        "Diese Website verwendet ausschließlich technisch notwendige Cookies, damit Sie unsere Seite normal nutzen können. Es findet kein Tracking, keine Analyse und keine Weitergabe an Dritte statt.",
+      more: "Mehr in der Datenschutzerklärung",
+      dismiss: "Verstanden",
+    },
+    legal: {
+      back: "← Zurück zur Startseite",
+      impressumTitle: "Impressum",
+      datenschutzTitle: "Datenschutzerklärung",
+      lastUpdated: "Stand",
+    },
   },
   ar: {
     nav: {
@@ -199,6 +212,19 @@ export const dict = {
       rights: "جميع الحقوق محفوظة.",
       impressum: "البيانات القانونية",
       datenschutz: "الخصوصية",
+    },
+    cookies: {
+      title: "ملاحظة حول الكوكيز",
+      body:
+        "يستخدم هذا الموقع ملفات كوكيز تقنية ضرورية فقط لتشغيل الصفحة بشكل طبيعي. لا يوجد أيّ تتبّع أو تحليل أو مشاركة لبياناتك مع أطرافٍ ثالثة.",
+      more: "اقرأ المزيد في سياسة الخصوصية",
+      dismiss: "موافق",
+    },
+    legal: {
+      back: "→ العودة إلى الرئيسية",
+      impressumTitle: "البيانات القانونية",
+      datenschutzTitle: "سياسة الخصوصية",
+      lastUpdated: "تاريخ التحديث",
     },
   },
 } as const;
