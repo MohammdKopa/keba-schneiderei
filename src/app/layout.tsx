@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Instrument_Serif, Inter, Noto_Naskh_Arabic, Amiri } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import GSAPProvider from "@/components/GSAPProvider";
 import LocalizedShell from "@/components/LocalizedShell";
@@ -208,6 +209,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <Script
+          defer
+          src="https://analytics.kametrix.com/script.js"
+          data-website-id="4b60ccdd-9b38-4f1a-b772-c95699ab8543"
+          strategy="afterInteractive"
         />
         <div className="noise" aria-hidden />
         <GSAPProvider>
