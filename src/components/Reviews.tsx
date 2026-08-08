@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { reviews, reviewsMeta } from "@/lib/reviews";
+import { reviews, reviewsMeta, relativeDate } from "@/lib/reviews";
 import type { Locale } from "@/lib/business";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -90,6 +90,19 @@ export default function Reviews({ locale }: Props) {
     return () => ctx.revert();
   }, { scope: ref });
 
+  // Age labels are resolved in the browser, not at build time — otherwise they
+  // freeze at whenever the site was last deployed, which is exactly the bug
+  // this replaced. Held back until after mount so the server HTML and the first
+  // client render agree; the label just fades in with everything else.
+  const [now, setNow] = useState<number | null>(null);
+  useEffect(() => setNow(Date.now()), []);
+
+  const ageLabel = (r: { date: string; localGuide?: boolean }) => {
+    if (now === null) return null;
+    const when = relativeDate(r.date, locale, now);
+    return r.localGuide ? `Local Guide · ${when}` : when;
+  };
+
   const featured = reviews.find((r) => r.featured) || reviews[0];
   const rest = reviews.filter((r) => r !== featured).slice(0, 6);
   const shown = rest.length + 1;
@@ -165,8 +178,8 @@ export default function Reviews({ locale }: Props) {
           <figcaption className="mt-12 flex flex-col items-center gap-3">
             <Stars count={featured.stars} />
             <span className="caption text-[var(--color-ink)]">{featured.name}</span>
-            {featured.context && (
-              <span className="eyebrow">— {featured.context}</span>
+            {ageLabel(featured) && (
+              <span className="eyebrow">— {ageLabel(featured)}</span>
             )}
           </figcaption>
         </figure>
@@ -185,7 +198,7 @@ export default function Reviews({ locale }: Props) {
               </blockquote>
               <figcaption className="flex flex-col gap-1">
                 <span className="caption text-[var(--color-ink)]">{r.name}</span>
-                {r.context && <span className="eyebrow">— {r.context}</span>}
+                {ageLabel(r) && <span className="eyebrow">— {ageLabel(r)}</span>}
               </figcaption>
             </figure>
           ))}
