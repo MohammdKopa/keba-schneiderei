@@ -3,7 +3,7 @@
 Website for **Keba Schneiderei** — Ahmad Keba's bespoke tailoring atelier in Marl, Germany.
 Bilingual one-pager (German + Arabic RTL), scrollytelling with GSAP + Lenis.
 
-> Berststraße 25, 45770 Marl · +49 2365 5125212 · [kebaschneiderei.com](https://kebaschneiderei.com)
+> Bergstraße 25, 45770 Marl · +49 2365 5125212 · [kebaschneiderei.com](https://kebaschneiderei.com)
 
 ## Stack
 

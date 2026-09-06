@@ -45,11 +45,11 @@ const amiri = Amiri({
 export const metadata: Metadata = {
   metadataBase: new URL(business.siteUrl),
   title: {
-    default: "Keba Schneiderei — Änderungsschneiderei in Marl",
+    default: "Keba Schneiderei — Schneider & Änderungsschneiderei Marl",
     template: "%s · Keba Schneiderei",
   },
   description:
-    "Änderungen, Bestickung, Reparaturen, Vorhänge und Maßanfertigung in Marl. Das Atelier von Ahmad Keba — über 30 Jahre Erfahrung. Deutsch · Arabisch · Englisch.",
+    "Ihr Schneider in Marl-Hüls: Änderungen, Bestickung, Reparaturen, Vorhänge und Maßanfertigung. Das Atelier von Ahmad Keba an der Bergstraße — über 30 Jahre Erfahrung. Deutsch · Arabisch · Englisch.",
   applicationName: "Keba Schneiderei",
   authors: [{ name: business.owner }],
   creator: business.owner,
@@ -57,6 +57,11 @@ export const metadata: Metadata = {
   keywords: [
     "Änderungsschneiderei Marl",
     "Schneider Marl",
+    "Schneiderei Marl Hüls",
+    "Schneider Marl Hüls",
+    "Schneiderei Marl Brassert",
+    "Nähatelier Marl",
+    "Herrenschneiderei Marl",
     "Hosen kürzen Marl",
     "Reißverschluss wechseln Marl",
     "Bestickung Marl",
@@ -140,7 +145,7 @@ const jsonLd = {
   name: business.name,
   alternateName: "Keba Änderungsschneiderei",
   description:
-    "Änderungsschneiderei und Maßschneiderei in Marl. Änderungen, Bestickung, Reparaturen, Vorhänge und Maßanfertigung — seit 2022.",
+    "Schneiderei, Änderungsschneiderei und Maßschneiderei in Marl-Hüls. Änderungen, Bestickung, Reparaturen, Vorhänge und Maßanfertigung — seit 2022.",
   founder: business.owner,
   foundingDate: String(business.founded),
   image: [`${business.siteUrl}/images/atelier/yellow-suit-form.jpg`],
@@ -169,6 +174,9 @@ const jsonLd = {
     { "@type": "City", name: "Recklinghausen" },
     { "@type": "City", name: "Haltern am See" },
     { "@type": "City", name: "Dorsten" },
+    { "@type": "City", name: "Herten" },
+    { "@type": "City", name: "Datteln" },
+    { "@type": "City", name: "Oer-Erkenschwick" },
     { "@type": "AdministrativeArea", name: "Ruhrgebiet" },
   ],
   knowsLanguage: ["de", "ar", "en"],

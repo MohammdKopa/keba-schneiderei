@@ -6,6 +6,7 @@ import ServicesRail from "@/components/ServicesRail";
 import WorkGallery from "@/components/WorkGallery";
 import AtelierPortrait from "@/components/AtelierPortrait";
 import Reviews from "@/components/Reviews";
+import ServiceArea from "@/components/ServiceArea";
 import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <WorkGallery locale="de" />
       <AtelierPortrait locale="de" />
       <Reviews locale="de" />
+      <ServiceArea locale="de" />
       <ContactSection locale="de" />
     </>
   );

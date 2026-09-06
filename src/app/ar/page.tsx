@@ -7,6 +7,7 @@ import ServicesRail from "@/components/ServicesRail";
 import WorkGallery from "@/components/WorkGallery";
 import AtelierPortrait from "@/components/AtelierPortrait";
 import Reviews from "@/components/Reviews";
+import ServiceArea from "@/components/ServiceArea";
 import ContactSection from "@/components/ContactSection";
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ export default function HomeAr() {
       <WorkGallery locale="ar" />
       <AtelierPortrait locale="ar" />
       <Reviews locale="ar" />
+      <ServiceArea locale="ar" />
       <ContactSection locale="ar" />
     </>
   );

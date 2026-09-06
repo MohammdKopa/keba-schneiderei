@@ -3,11 +3,11 @@ export const business = {
   owner: "Ahmad Keba",
   founded: 2022,
   address: {
-    street: "Berststraße 25",
+    street: "Bergstraße 25",
     zip: "45770",
     city: "Marl",
     country: "DE",
-    full: "Berststraße 25, 45770 Marl",
+    full: "Bergstraße 25, 45770 Marl",
   },
   coordinates: { lat: 51.6655074, lng: 7.1268205 },
   phone: "02365 5125212",

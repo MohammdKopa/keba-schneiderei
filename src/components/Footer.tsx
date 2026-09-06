@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { business, openingHours } from "@/lib/business";
+import { business } from "@/lib/business";
 import type { Locale } from "@/lib/business";
 import { t } from "@/lib/dictionary";
 
@@ -8,6 +8,13 @@ interface Props { locale: Locale; }
 
 export default function Footer({ locale }: Props) {
   const lang = t(locale);
+  const basePath = locale === "ar" ? "/ar" : "/";
+  const navLinks = [
+    { href: `${basePath}#philosophie`, label: lang.nav.atelier },
+    { href: `${basePath}#leistungen`, label: lang.nav.leistungen },
+    { href: `${basePath}#galerie`, label: lang.nav.galerie },
+    { href: `${basePath}#kontakt`, label: lang.nav.kontakt },
+  ];
 
   return (
     <footer className="bg-[var(--color-ink)] text-[var(--color-paper)] relative border-t border-[var(--color-paper)]/10">
@@ -36,20 +43,11 @@ export default function Footer({ locale }: Props) {
           </div>
 
           <div className="md:col-span-3">
-            <p className="eyebrow mb-4 text-[var(--color-mushroom)]">{lang.footer.hours}</p>
+            <p className="eyebrow mb-4 text-[var(--color-mushroom)]">{lang.footer.links}</p>
             <ul className="space-y-1.5 text-sm text-[var(--color-paper)]/75">
-              {openingHours.map((oh) => (
-                <li key={oh.dayEn} className="flex justify-between items-start gap-3">
-                  <span>{locale === "de" ? oh.dayDe : oh.dayAr}</span>
-                  {oh.sessions.length === 0 ? (
-                    <span className="italic text-[var(--color-paper)]/40">{lang.contact.closed}</span>
-                  ) : (
-                    <span className="text-right leading-relaxed">
-                      {oh.sessions.map((s, i) => (
-                        <span key={i} className="block">{s}</span>
-                      ))}
-                    </span>
-                  )}
+              {navLinks.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} className="link-line hover:text-[var(--color-paper)]">{l.label}</a>
                 </li>
               ))}
             </ul>

@@ -8,7 +8,7 @@
 | **Owner / Master Tailor** | Ahmad Keba |
 | **Founded** | 2022 |
 | **Type** | Bespoke tailoring / Maßschneiderei |
-| **Address** | Berststraße 25, 45770 Marl, Germany |
+| **Address** | Bergstraße 25, 45770 Marl, Germany |
 | **Phone** | +49 2365 5125212 |
 | **Email** | info@kebaschneiderei.com |
 | **Current Website** | https://kebaschneiderei.com/ |

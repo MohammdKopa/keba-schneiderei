@@ -12,10 +12,10 @@ export const dict = {
       langLabel: "العربية",
     },
     hero: {
-      eyebrow: "Änderungsschneiderei · Marl · seit 2022",
+      eyebrow: "Schneiderei · Marl-Hüls · seit 2022",
       titleLines: ["Änderungen,", "die", "sitzen."],
       lede:
-        "Keba Schneiderei in Marl — Änderungen, Bestickung, Reparaturen und Maßanfertigung. Wir machen, dass jedes Stück wieder auf Sie passt.",
+        "Keba Schneiderei in Marl-Hüls — Ihr Schneider für Änderungen, Bestickung, Reparaturen und Maßanfertigung. Wir machen, dass jedes Stück wieder auf Sie passt.",
       cta: "Vorbeikommen",
       ctaSecondary: "Unser Atelier entdecken",
       scrollHint: "Scrollen",
@@ -48,7 +48,7 @@ export const dict = {
       title: "Ahmad Keba.",
       subtitle: "Über dreißig Jahre an der Nadel.",
       body: [
-        "Ahmad Keba hat sein Handwerk über mehr als drei Jahrzehnte gelernt — in Ateliers, in denen das Wort „gut genug\u201C nicht existierte. 2022 eröffnete er mit seiner Familie sein eigenes Atelier in Marl.",
+        "Ahmad Keba hat sein Handwerk über mehr als drei Jahrzehnte gelernt — in Ateliers, in denen das Wort „gut genug\u201C nicht existierte. 2022 eröffnete er mit seiner Familie sein eigenes Atelier in Marl-Hüls, an der Bergstraße.",
         "Heute kürzen wir Hosen, engen Jacken ein, wechseln Reißverschlüsse, besticken T-Shirts mit Ihrem Namen, nähen Vorhänge für Krankenhäuser und Restaurants — und fertigen, wenn Sie es wünschen, einen ganzen Anzug nach Maß.",
         "Wir sprechen Deutsch, Arabisch, Englisch. Und vor allem: die Sprache der Passform.",
       ],
@@ -63,7 +63,7 @@ export const dict = {
       eyebrow: "Kontakt",
       title: "Kommen Sie vorbei.",
       body:
-        "Am schnellsten ist es, wenn Sie das Kleidungsstück direkt mitbringen. Rufen Sie an, schreiben Sie uns — oder kommen Sie einfach spontan in der Berststraße vorbei.",
+        "Am schnellsten ist es, wenn Sie das Kleidungsstück direkt mitbringen. Rufen Sie an, schreiben Sie uns — oder kommen Sie einfach spontan in der Bergstraße vorbei.",
       form: {
         name: "Name",
         namePh: "Ihr Name",
@@ -90,9 +90,27 @@ export const dict = {
       hours: "Öffnungszeiten",
       closed: "geschlossen",
     },
+    area: {
+      eyebrow: "Einzugsgebiet",
+      title: "Wo unsere Kunden herkommen.",
+      body:
+        "Unser Atelier liegt in Marl-Hüls, Bergstraße 25 — Parkplätze direkt vor der Tür. Bringen Sie das Kleidungsstück einfach mit: Wir messen, stecken ab und sagen Ihnen sofort, was möglich ist.",
+      note: "Aus dem gesamten Kreis Recklinghausen sind Sie in etwa einer Viertelstunde bei uns.",
+      marlLabel: "Stadtteile in Marl",
+      marl: ["Hüls", "Brassert", "Drewer", "Alt-Marl", "Sinsen", "Lenkerbeck", "Polsum", "Hamm"],
+      aroundLabel: "Aus der Nachbarschaft",
+      around: [
+        { city: "Recklinghausen", time: "ca. 15 Min." },
+        { city: "Herten", time: "ca. 15 Min." },
+        { city: "Oer-Erkenschwick", time: "ca. 15 Min." },
+        { city: "Haltern am See", time: "ca. 15 Min." },
+        { city: "Dorsten", time: "ca. 17 Min." },
+        { city: "Datteln", time: "ca. 25 Min." },
+      ],
+    },
     footer: {
       tagline:
-        "Änderungsschneiderei in Marl. Bestickung, Reparaturen und Maßanfertigung — damit jedes Stück wieder passt.",
+        "Schneiderei und Änderungsschneiderei in Marl-Hüls. Bestickung, Reparaturen und Maßanfertigung — damit jedes Stück wieder passt.",
       links: "Navigation",
       hours: "Öffnungszeiten",
       visit: "Besuchen Sie uns",
@@ -125,7 +143,7 @@ export const dict = {
       langLabel: "Deutsch",
     },
     hero: {
-      eyebrow: "خياطة تعديلات · مارل · منذ ٢٠٢٢",
+      eyebrow: "خياطة تعديلات · مارل-هولس · منذ ٢٠٢٢",
       titleLines: ["تعديلاتٌ", "تليقُ", "بك."],
       lede:
         "كيبا في مارل — تعديلات، تطريز، إصلاحات، وتفصيل. نُعيد كلّ قطعة إلى مقاسها.",
@@ -176,7 +194,7 @@ export const dict = {
       eyebrow: "تواصل",
       title: "مرّ علينا.",
       body:
-        "الأسرع أن تُحضر القطعة معك. اتّصل بنا، اكتب لنا، أو مرّ بنا في شارع Berststraße.",
+        "الأسرع أن تُحضر القطعة معك. اتّصل بنا، اكتب لنا، أو مرّ بنا في شارع Bergstraße.",
       form: {
         name: "الاسم",
         namePh: "اسمك",
@@ -202,6 +220,24 @@ export const dict = {
       details: { call: "اتّصال", write: "مراسلة", findUs: "جوجل مابس" },
       hours: "أوقات العمل",
       closed: "مغلق",
+    },
+    area: {
+      eyebrow: "منطقة الخدمة",
+      title: "من أين يأتي زبائننا.",
+      body:
+        "ورشتنا في مارل-هولس، Bergstraße 25 — مواقف أمام الباب مباشرة. أحضر القطعة معك: نأخذ المقاس، نثبّت الدبابيس، ونقول لك فوراً ما الذي يمكن عمله.",
+      note: "من عموم منطقة ريكلينغهاوزن تصل إلينا في نحو ربع ساعة.",
+      marlLabel: "أحياء مارل",
+      marl: ["Hüls", "Brassert", "Drewer", "Alt-Marl", "Sinsen", "Lenkerbeck", "Polsum", "Hamm"],
+      aroundLabel: "من الجوار",
+      around: [
+        { city: "Recklinghausen", time: "نحو ١٥ د." },
+        { city: "Herten", time: "نحو ١٥ د." },
+        { city: "Oer-Erkenschwick", time: "نحو ١٥ د." },
+        { city: "Haltern am See", time: "نحو ١٥ د." },
+        { city: "Dorsten", time: "نحو ١٧ د." },
+        { city: "Datteln", time: "نحو ٢٥ د." },
+      ],
     },
     footer: {
       tagline:
