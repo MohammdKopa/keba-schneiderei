@@ -124,8 +124,8 @@ export default function Hero({ locale }: Props) {
       {/* Top eyebrow */}
       <div className="absolute top-24 sm:top-28 inset-x-0 z-20 wrap">
         <div className="flex items-center justify-between gap-6 flex-wrap">
-          <p data-hero-fade className="eyebrow">— {business.address.city} · {business.founded}</p>
-          <p data-hero-fade className="eyebrow hidden md:inline">{lang.hero.eyebrow}</p>
+          <h1 data-hero-fade className="eyebrow">{lang.hero.eyebrow}</h1>
+          <p data-hero-fade className="eyebrow hidden md:inline">— {business.address.city} · {business.founded}</p>
         </div>
       </div>
 
@@ -144,14 +144,14 @@ export default function Hero({ locale }: Props) {
 
       {/* Title */}
       <div data-hero-title className="relative z-10 wrap pt-[32vh] sm:pt-[38vh] lg:pt-[44vh] pb-28 sm:pb-32">
-        <h1 className="font-display text-[clamp(5rem,22vw,17rem)] leading-[0.85] tracking-[-0.04em] text-[var(--color-ink)]">
+        <p className="font-display text-[clamp(3rem,15vw,17rem)] sm:text-[clamp(5rem,22vw,17rem)] leading-[0.85] tracking-[-0.04em] text-[var(--color-ink)]">
           <span className="mask block">
             <span className="inline-block">{splitLetters(line1)}</span>
           </span>
           <span className="mask block mt-[-0.05em]">
             <span className="font-italic-display inline-block text-[var(--color-cognac)]">{splitLetters(line2)}.</span>
           </span>
-        </h1>
+        </p>
 
         <div className="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-12 items-end gap-8">
           <p data-hero-fade className="lg:col-span-5 lg:col-start-1 text-[var(--color-ink-soft)] leading-relaxed text-[1.05rem] lg:text-[1.12rem] max-w-xl text-pretty">

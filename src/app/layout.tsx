@@ -45,11 +45,11 @@ const amiri = Amiri({
 export const metadata: Metadata = {
   metadataBase: new URL(business.siteUrl),
   title: {
-    default: "Keba Schneiderei — Schneider & Änderungsschneiderei Marl",
+    default: "Schneider in Marl · Änderungsschneiderei Keba",
     template: "%s · Keba Schneiderei",
   },
   description:
-    "Ihr Schneider in Marl-Hüls: Änderungen, Bestickung, Reparaturen, Vorhänge und Maßanfertigung. Das Atelier von Ahmad Keba an der Bergstraße — über 30 Jahre Erfahrung. Deutsch · Arabisch · Englisch.",
+    "Schneider in Marl: Hosen kürzen, Reißverschluss wechseln, Kleider ändern, Leder reparieren, Bestickung und Maßanfertigung. Ahmad Keba, Bergstraße — über 30 Jahre Erfahrung. Deutsch · Arabisch · Englisch.",
   applicationName: "Keba Schneiderei",
   authors: [{ name: business.owner }],
   creator: business.owner,
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Keba Schneiderei — Änderungsschneiderei in Marl",
+    title: "Schneider in Marl — Keba Schneiderei",
     description:
       "Änderungen, Bestickung, Reparaturen und Maßanfertigung. Das Atelier von Ahmad Keba in Marl — seit 2022.",
     url: business.siteUrl,
@@ -106,7 +106,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Keba Schneiderei — Änderungsschneiderei in Marl",
+    title: "Schneider in Marl — Keba Schneiderei",
     description:
       "Änderungen, Bestickung, Reparaturen und Maßanfertigung. Ahmad Keba · Marl · seit 2022.",
     images: ["/images/atelier/yellow-suit-form.jpg"],
@@ -145,7 +145,7 @@ const jsonLd = {
   name: business.name,
   alternateName: "Keba Änderungsschneiderei",
   description:
-    "Schneiderei, Änderungsschneiderei und Maßschneiderei in Marl-Hüls. Änderungen, Bestickung, Reparaturen, Vorhänge und Maßanfertigung — seit 2022.",
+    "Schneiderei, Änderungsschneiderei und Maßschneiderei in Marl. Änderungen, Bestickung, Reparaturen, Vorhänge und Maßanfertigung — seit 2022.",
   founder: business.owner,
   foundingDate: String(business.founded),
   image: [`${business.siteUrl}/images/atelier/yellow-suit-form.jpg`],

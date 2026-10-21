@@ -12,10 +12,10 @@ export const dict = {
       langLabel: "العربية",
     },
     hero: {
-      eyebrow: "Schneiderei · Marl-Hüls · seit 2022",
+      eyebrow: "Schneider & Änderungsschneiderei in Marl",
       titleLines: ["Änderungen,", "die", "sitzen."],
       lede:
-        "Keba Schneiderei in Marl-Hüls — Ihr Schneider für Änderungen, Bestickung, Reparaturen und Maßanfertigung. Wir machen, dass jedes Stück wieder auf Sie passt.",
+        "Keba Schneiderei in Marl — Ihr Schneider für Änderungen, Reparaturen, Bestickung und Maßanfertigung: Hosen kürzen, Reißverschlüsse wechseln, Kleider anpassen, Lederjacken reparieren. Wir machen, dass jedes Stück wieder auf Sie passt.",
       cta: "Vorbeikommen",
       ctaSecondary: "Unser Atelier entdecken",
       scrollHint: "Scrollen",
@@ -94,7 +94,7 @@ export const dict = {
       eyebrow: "Einzugsgebiet",
       title: "Wo unsere Kunden herkommen.",
       body:
-        "Unser Atelier liegt in Marl-Hüls, Bergstraße 25 — Parkplätze direkt vor der Tür. Bringen Sie das Kleidungsstück einfach mit: Wir messen, stecken ab und sagen Ihnen sofort, was möglich ist.",
+        "Unser Atelier liegt in Marl, Bergstraße 25 — Parkplätze direkt vor der Tür. Bringen Sie das Kleidungsstück einfach mit: Wir messen, stecken ab und sagen Ihnen sofort, was möglich ist.",
       note: "Aus dem gesamten Kreis Recklinghausen sind Sie in etwa einer Viertelstunde bei uns.",
       marlLabel: "Stadtteile in Marl",
       marl: ["Hüls", "Brassert", "Drewer", "Alt-Marl", "Sinsen", "Lenkerbeck", "Polsum", "Hamm"],
@@ -110,7 +110,7 @@ export const dict = {
     },
     footer: {
       tagline:
-        "Schneiderei und Änderungsschneiderei in Marl-Hüls. Bestickung, Reparaturen und Maßanfertigung — damit jedes Stück wieder passt.",
+        "Schneiderei und Änderungsschneiderei in Marl. Bestickung, Reparaturen und Maßanfertigung — damit jedes Stück wieder passt.",
       links: "Navigation",
       hours: "Öffnungszeiten",
       visit: "Besuchen Sie uns",
@@ -143,7 +143,7 @@ export const dict = {
       langLabel: "Deutsch",
     },
     hero: {
-      eyebrow: "خياطة تعديلات · مارل-هولس · منذ ٢٠٢٢",
+      eyebrow: "خيّاط وتعديل ملابس في مارل",
       titleLines: ["تعديلاتٌ", "تليقُ", "بك."],
       lede:
         "كيبا في مارل — تعديلات، تطريز، إصلاحات، وتفصيل. نُعيد كلّ قطعة إلى مقاسها.",
@@ -225,7 +225,7 @@ export const dict = {
       eyebrow: "منطقة الخدمة",
       title: "من أين يأتي زبائننا.",
       body:
-        "ورشتنا في مارل-هولس، Bergstraße 25 — مواقف أمام الباب مباشرة. أحضر القطعة معك: نأخذ المقاس، نثبّت الدبابيس، ونقول لك فوراً ما الذي يمكن عمله.",
+        "ورشتنا في مارل، Bergstraße 25 — مواقف أمام الباب مباشرة. أحضر القطعة معك: نأخذ المقاس، نثبّت الدبابيس، ونقول لك فوراً ما الذي يمكن عمله.",
       note: "من عموم منطقة ريكلينغهاوزن تصل إلينا في نحو ربع ساعة.",
       marlLabel: "أحياء مارل",
       marl: ["Hüls", "Brassert", "Drewer", "Alt-Marl", "Sinsen", "Lenkerbeck", "Polsum", "Hamm"],
