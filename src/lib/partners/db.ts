@@ -184,6 +184,20 @@ export function setPartnerActive(id: number, active: boolean): void {
   getDb().prepare("UPDATE partners SET active = ? WHERE id = ?").run(active ? 1 : 0, id);
 }
 
+/** Removes the partner and all of its codes. Their QR links then show the 404 page. */
+export function deletePartner(id: number): void {
+  const d = getDb();
+  d.exec("BEGIN");
+  try {
+    d.prepare("DELETE FROM codes WHERE partner_id = ?").run(id);
+    d.prepare("DELETE FROM partners WHERE id = ?").run(id);
+    d.exec("COMMIT");
+  } catch (e) {
+    d.exec("ROLLBACK");
+    throw e;
+  }
+}
+
 function randomCode(): string {
   let s = "";
   for (let i = 0; i < CODE_LENGTH; i++) s += ALPHABET[randomInt(ALPHABET.length)];

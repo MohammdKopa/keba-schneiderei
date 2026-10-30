@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { lookupCode, redeem, type LookupResult } from "./actions";
 import { formatDate } from "@/lib/partners/codes";
 
@@ -12,12 +12,19 @@ const MESSAGES: Record<LookupResult["status"], { de: string; ar: string; tone: "
   invalid: { de: "4 Zeichen eingeben", ar: "أدخل ٤ أحرف", tone: "bad" },
 };
 
-export default function RedeemPanel() {
-  const [input, setInput] = useState("");
-  const [amount, setAmount] = useState("");
+const toBody = (raw: string) =>
+  raw.toUpperCase().replace(/^K-/, "").replace(/[^A-Z0-9]/g, "").slice(0, 4);
+
+/** `scanned` comes from /laden?code=K-XXXX — the URL inside the QR on the customer's phone. */
+export default function RedeemPanel({ scanned }: { scanned?: string }) {
+  const [input, setInput] = useState(scanned ? toBody(scanned) : "");
   const [result, setResult] = useState<LookupResult | null>(null);
   const [done, setDone] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
+
+  useEffect(() => {
+    if (scanned) startTransition(async () => setResult(await lookupCode(scanned)));
+  }, [scanned]);
 
   const check = (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,12 +36,12 @@ export default function RedeemPanel() {
     if (!result || result.status !== "valid") return;
     const code = result.code;
     startTransition(async () => {
-      const ok = await redeem(code, amount);
-      if (ok) {
+      if (await redeem(code)) {
         setDone(code);
         setResult(null);
         setInput("");
-        setAmount("");
+        // Drop ?code= so a reload doesn't show the scanned code again.
+        window.history.replaceState(null, "", "/laden");
       } else {
         setResult(await lookupCode(code));
       }
@@ -57,7 +64,7 @@ export default function RedeemPanel() {
             id="code"
             value={input}
             onChange={(e) => {
-              setInput(e.target.value.toUpperCase().replace(/^K-/, "").replace(/[^A-Z0-9]/g, "").slice(0, 4));
+              setInput(toBody(e.target.value));
               setResult(null);
               setDone(null);
             }}
@@ -71,6 +78,12 @@ export default function RedeemPanel() {
             <span>Prüfen</span>
           </button>
         </div>
+        <p className="mt-2 text-xs text-[var(--color-ink-mute)]">
+          Oder den QR-Code auf dem Handy des Kunden mit der Kamera scannen.
+        </p>
+        <p dir="rtl" className="mt-0.5 text-xs text-[var(--color-ink-mute)]" style={{ fontFamily: "var(--font-noto-arabic)" }}>
+          أو امسح رمز QR من هاتف الزبون بالكاميرا
+        </p>
       </form>
 
       {done && (
@@ -98,7 +111,8 @@ export default function RedeemPanel() {
           {"code" in result && (
             <div className="mt-3 space-y-1 text-sm">
               <p>
-                Rabatt: <strong className="text-lg">{result.discount}</strong>
+                <span className="font-mono">{result.code}</span> · Rabatt:{" "}
+                <strong className="text-lg">{result.discount}</strong>
               </p>
               <p>Von: {result.partnerName}</p>
               {result.status === "redeemed" && result.redeemedAt && (
@@ -109,26 +123,14 @@ export default function RedeemPanel() {
           )}
 
           {result.status === "valid" && (
-            <div className="mt-5 space-y-3">
-              <label className="block text-sm">
-                Betrag in € (optional) · المبلغ
-                <input
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                  inputMode="decimal"
-                  placeholder="z. B. 18"
-                  className="mt-1 block w-full border border-[var(--color-ink)] bg-white px-3 py-3 text-lg outline-none"
-                />
-              </label>
-              <button
-                type="button"
-                onClick={confirm}
-                disabled={pending}
-                className="w-full bg-emerald-700 py-4 text-lg font-semibold text-white disabled:opacity-50"
-              >
-                Eingelöst ✓ · تم
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={confirm}
+              disabled={pending}
+              className="mt-5 w-full bg-emerald-700 py-5 text-xl font-semibold text-white disabled:opacity-50"
+            >
+              Eingelöst ✓ · تم
+            </button>
           )}
         </div>
       )}

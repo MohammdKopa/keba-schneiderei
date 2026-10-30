@@ -3,10 +3,18 @@
 import { useActionState } from "react";
 import { login } from "./actions";
 
-export default function LoginForm() {
+export default function LoginForm({ scanned }: { scanned?: string }) {
   const [error, action, pending] = useActionState(login, null);
   return (
     <form action={action} className="space-y-4">
+      {scanned && (
+        <>
+          <input type="hidden" name="code" value={scanned} />
+          <p className="text-sm text-[var(--color-ink-soft)]">
+            Nach der Anmeldung wird <span className="font-mono font-semibold">{scanned}</span> sofort geprüft.
+          </p>
+        </>
+      )}
       <label className="block">
         <span className="eyebrow">PIN · الرمز</span>
         <input

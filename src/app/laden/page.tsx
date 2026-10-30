@@ -7,6 +7,7 @@ import { logout, togglePartner } from "./actions";
 import LoginForm from "./LoginForm";
 import RedeemPanel from "./RedeemPanel";
 import AddPartnerForm from "./AddPartnerForm";
+import DeletePartnerButton from "./DeletePartnerButton";
 import KebaMark, { brand } from "@/components/KebaMark";
 
 export const dynamic = "force-dynamic";
@@ -16,7 +17,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default async function LadenPage() {
+export default async function LadenPage({ searchParams }: { searchParams: Promise<{ code?: string }> }) {
+  const { code: scanned } = await searchParams;
+
   if (!isConfigured()) {
     return (
       <Shell>
@@ -28,7 +31,7 @@ export default async function LadenPage() {
   if (!(await isLoggedIn())) {
     return (
       <Shell>
-        <LoginForm />
+        <LoginForm scanned={scanned} />
       </Shell>
     );
   }
@@ -46,7 +49,7 @@ export default async function LadenPage() {
         </form>
       }
     >
-      <RedeemPanel />
+      <RedeemPanel key={scanned} scanned={scanned} />
 
       <section className="mt-14">
         <SectionTitle de="Partner" ar="الشركاء" />
@@ -81,6 +84,7 @@ export default async function LadenPage() {
                       {p.active ? "Pausieren" : "Aktivieren"}
                     </button>
                   </form>
+                  <DeletePartnerButton id={p.id} name={p.name} />
                 </div>
               </li>
             ))}

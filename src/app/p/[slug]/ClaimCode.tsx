@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import QRCode from "qrcode";
 import type { Code } from "@/lib/partners/db";
 import { formatDate } from "@/lib/partners/codes";
 import { brand } from "@/lib/brand";
@@ -77,8 +78,10 @@ export default function ClaimCode({
             <p className="mt-4 text-sm">Eingelöst am {formatDate(state.code.redeemedAt)}. Danke für Ihren Besuch!</p>
           ) : (
             <>
+              <RedeemQr code={state.code.code} />
               <p className="mt-4 text-sm text-[var(--color-ink-soft)]">
-                Gültig bis {formatDate(state.code.expiresAt)}. Zeigen Sie diesen Code einfach bei uns im Laden.
+                Gültig bis {formatDate(state.code.expiresAt)}. Zeigen Sie diesen QR-Code im Laden — wir scannen
+                ihn kurz, fertig.
               </p>
               <p className="mt-2 text-xs text-[var(--color-ink-mute)]">Tipp: Machen Sie einen Screenshot.</p>
             </>
@@ -86,5 +89,26 @@ export default function ClaimCode({
         </>
       )}
     </div>
+  );
+}
+
+/** The shop scans this with the phone camera; it opens /laden with the code already checked. */
+function RedeemQr({ code }: { code: string }) {
+  const [svg, setSvg] = useState<string | null>(null);
+
+  useEffect(() => {
+    const url = `${window.location.origin}/laden?code=${encodeURIComponent(code)}`;
+    QRCode.toString(url, { type: "svg", margin: 0, errorCorrectionLevel: "M", color: { dark: "#0A0908", light: "#0000" } })
+      .then(setSvg)
+      .catch(() => setSvg(null));
+  }, [code]);
+
+  return (
+    <div
+      className="mx-auto mt-5 aspect-square w-full max-w-[220px] [&_svg]:h-full [&_svg]:w-full"
+      aria-label={`QR-Code für ${code}`}
+      role="img"
+      dangerouslySetInnerHTML={svg ? { __html: svg } : undefined}
+    />
   );
 }

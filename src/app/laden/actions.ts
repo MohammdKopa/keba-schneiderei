@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import {
   createPartner,
+  deletePartner,
   getCode,
   getPartnerById,
   normalizeCode,
@@ -23,7 +24,9 @@ export async function login(_prev: string | null, form: FormData): Promise<strin
   }
   if (!checkPin(String(form.get("pin") ?? ""))) return "Falsche PIN.";
   await startSession();
-  redirect("/laden");
+  // Keep a code scanned before logging in, so the shop lands straight on it.
+  const code = normalizeCode(String(form.get("code") ?? ""));
+  redirect(code ? `/laden?code=${code}` : "/laden");
 }
 
 export async function logout(): Promise<void> {
@@ -64,13 +67,11 @@ export async function lookupCode(raw: string): Promise<LookupResult> {
   };
 }
 
-export async function redeem(code: string, amountEuro: string): Promise<boolean> {
+export async function redeem(code: string): Promise<boolean> {
   await requireLogin();
   const normalized = normalizeCode(code);
   if (!normalized) return false;
-  const euros = Number(amountEuro.replace(",", "."));
-  const cents = amountEuro.trim() && Number.isFinite(euros) && euros > 0 ? Math.round(euros * 100) : null;
-  const ok = redeemCode(normalized, cents);
+  const ok = redeemCode(normalized, null);
   revalidatePath("/laden");
   return ok;
 }
@@ -94,5 +95,11 @@ export async function addPartner(_prev: string | null, form: FormData): Promise<
 export async function togglePartner(id: number, active: boolean): Promise<void> {
   await requireLogin();
   setPartnerActive(id, active);
+  revalidatePath("/laden");
+}
+
+export async function removePartner(id: number): Promise<void> {
+  await requireLogin();
+  deletePartner(id);
   revalidatePath("/laden");
 }
