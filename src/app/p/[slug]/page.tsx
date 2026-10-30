@@ -6,6 +6,12 @@ import { codeCookieName, isCodeUsable, kindCopy } from "@/lib/partners/codes";
 import { business, openingHours } from "@/lib/business";
 import ClaimCode from "./ClaimCode";
 import KebaMark, { brand } from "@/components/KebaMark";
+import { Navigation } from "lucide-react";
+
+// Opens turn-by-turn directions in the Maps app (or browser) from wherever the customer is.
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+  `${business.name}, ${business.address.full}`,
+)}`;
 
 export const dynamic = "force-dynamic";
 
@@ -61,6 +67,17 @@ export default async function PartnerLanding({ params }: { params: Promise<{ slu
             </p>
           </div>
         )}
+
+        <a
+          href={directionsUrl}
+          target="_blank"
+          rel="noopener"
+          className="mt-4 flex w-full items-center justify-center gap-3 py-4 text-base font-semibold text-white"
+          style={{ background: brand.teal }}
+        >
+          <Navigation size={20} style={{ color: brand.yellow }} aria-hidden />
+          Route planen
+        </a>
 
         <div className="mt-10 border-t border-[var(--color-rule)] pt-8 text-sm">
           <p className="eyebrow mb-3">So finden Sie uns</p>
