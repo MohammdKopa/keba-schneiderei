@@ -26,6 +26,11 @@ export default function LocalizedShell({ children }: { children: React.ReactNode
     html.dir = locale === "ar" ? "rtl" : "ltr";
   }, [locale]);
 
+  // Partner landing pages and the shop desk are utility screens: no nav, cursor or cookie banner.
+  if (pathname && (pathname.startsWith("/p/") || pathname.startsWith("/laden"))) {
+    return <main className="flex-1">{children}</main>;
+  }
+
   return (
     <>
       <SmoothScroll />
