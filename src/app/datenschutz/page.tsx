@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function DatenschutzDE() {
   return (
-    <LegalPage locale="de" title="Datenschutzerklärung" lastUpdated="April 2026">
+    <LegalPage locale="de" title="Datenschutzerklärung" lastUpdated="Oktober 2026">
       <p className="lede">
         Der Schutz Ihrer Daten ist uns wichtig. Wir verarbeiten so wenig personenbezogene Daten
         wie möglich — und nur, wenn es einen klaren Grund dafür gibt.
@@ -74,6 +74,22 @@ export default function DatenschutzDE() {
         bereits gesehen und geschlossen haben. Dieser Eintrag enthält keine personenbezogenen
         Daten und wird nicht an unseren Server übertragen. Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TDDDG
         (unbedingt erforderlich für den Dienst).
+      </p>
+      <p>
+        <strong>Rabattcodes über Partnergeschäfte:</strong> Wenn Sie den QR-Code eines unserer
+        Partnergeschäfte scannen, erzeugen wir einen einmalig einlösbaren Rabattcode und speichern ihn
+        in einem technisch notwendigen Cookie (Name beginnt mit „kc_“), damit Sie beim erneuten Aufruf
+        denselben Code sehen. Der Cookie enthält nur diesen Code und läuft nach dessen Gültigkeit ab
+        (30 bzw. 90 Tage). Auf unserem Server speichern wir zu jedem Code lediglich das empfehlende
+        Partnergeschäft, Erstellungs- und Ablaufdatum sowie bei Einlösung das Datum und ggf. den
+        Auftragsbetrag — <strong>keinen Namen und keine Kontaktdaten</strong>. Ihre Daten werden
+        nicht an das Partnergeschäft weitergegeben. Zum Schutz vor Missbrauch wird Ihre IP-Adresse
+        höchstens eine Stunde lang im Arbeitsspeicher gezählt und nicht dauerhaft gespeichert.
+        Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TDDDG sowie Art. 6 Abs. 1 lit. b und f DSGVO.
+      </p>
+      <p>
+        Für unseren internen Mitarbeiterbereich wird zusätzlich ein Anmelde-Cookie gesetzt. Es
+        betrifft ausschließlich unsere Mitarbeiter.
       </p>
 
       <h2>4. Kontaktformular</h2>
