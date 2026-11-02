@@ -19,8 +19,16 @@ function compactHours(): string {
   return [...groups].map(([hours, days]) => `${days.join(", ")} ${hours}`).join(" · ");
 }
 
-/** The printable A4 sheets (counter sign + 10 business cards). `toolbar` is screen-only. */
-export default async function FlyerView({ partner, toolbar }: { partner: Partner; toolbar: React.ReactNode }) {
+/** The printable A4 sheets (counter sign + 10 business cards, or only the sign). `toolbar` is screen-only. */
+export default async function FlyerView({
+  partner,
+  toolbar,
+  signOnly = false,
+}: {
+  partner: Partner;
+  toolbar?: React.ReactNode;
+  signOnly?: boolean;
+}) {
   const url = `${business.siteUrl}/p/${partner.slug}`;
   const qr = await QRCode.toString(url, { type: "svg", margin: 0, errorCorrectionLevel: "M", color: { dark: "#0A0908", light: "#0000" } });
   const copy = kindCopy[partner.kind];
@@ -40,7 +48,7 @@ export default async function FlyerView({ partner, toolbar }: { partner: Partner
         .qr svg { width: 100%; height: 100%; display: block; }
       `}</style>
 
-      <div className="no-print mx-auto mb-8 max-w-[210mm] px-4">{toolbar}</div>
+      {toolbar && <div className="no-print mx-auto mb-8 max-w-[210mm] px-4">{toolbar}</div>}
 
       {/* Sheet 1 — counter sign, in the shop-sign colours */}
       <section className="sheet mx-auto mb-8 flex flex-col shadow-xl">
@@ -103,45 +111,47 @@ export default async function FlyerView({ partner, toolbar }: { partner: Partner
       </section>
 
       {/* Sheet 2 — 10 business cards, 85 × 55 mm, with hairline cut guides */}
-      <section
-        className="sheet mx-auto grid shadow-xl"
-        style={{
-          gridTemplateColumns: "repeat(2, 85mm)",
-          gridTemplateRows: "repeat(5, 55mm)",
-          justifyContent: "center",
-          alignContent: "center",
-        }}
-      >
-        {Array.from({ length: 10 }, (_, i) => (
-          <div key={i} className="flex flex-col overflow-hidden border border-dashed border-[#C7BDA9]">
-            <div
-              className="flex items-center justify-between"
-              style={{ background: brand.teal, padding: "2.5mm 4mm", printColorAdjust: "exact", WebkitPrintColorAdjust: "exact" }}
-            >
-              <KebaMark size={22} tagline={false} />
-              <span className="text-[5.8pt] uppercase tracking-[0.16em] text-white/85">Änderungsschneiderei</span>
-            </div>
-            <div className="flex flex-1 gap-[4mm]" style={{ padding: "3mm 4mm" }}>
-              <div className="qr shrink-0 self-center" style={{ width: "27mm", height: "27mm" }} dangerouslySetInnerHTML={{ __html: qr }} />
-              <div className="flex min-w-0 flex-col text-[7pt] leading-snug text-[#2A2522]">
-                <p
-                  className="self-start rounded-full px-[2.5mm] py-[0.6mm] text-[14pt] font-semibold leading-none"
-                  style={{ background: brand.yellow, color: brand.teal, printColorAdjust: "exact", WebkitPrintColorAdjust: "exact" }}
-                >
-                  {partner.discount}
-                </p>
-                <p className="mt-[1.2mm] font-medium text-[#0A0908]">auf Ihre {service}</p>
-                <p className="mt-[0.8mm]">QR scannen, Code im Laden zeigen.</p>
-                <p className="mt-auto text-[6pt] text-[#635B52]">
-                  Empfohlen von {partner.name}
-                  <br />
-                  {business.address.full} · {business.phone}
-                </p>
+      {!signOnly && (
+        <section
+          className="sheet mx-auto grid shadow-xl"
+          style={{
+            gridTemplateColumns: "repeat(2, 85mm)",
+            gridTemplateRows: "repeat(5, 55mm)",
+            justifyContent: "center",
+            alignContent: "center",
+          }}
+        >
+          {Array.from({ length: 10 }, (_, i) => (
+            <div key={i} className="flex flex-col overflow-hidden border border-dashed border-[#C7BDA9]">
+              <div
+                className="flex items-center justify-between"
+                style={{ background: brand.teal, padding: "2.5mm 4mm", printColorAdjust: "exact", WebkitPrintColorAdjust: "exact" }}
+              >
+                <KebaMark size={22} tagline={false} />
+                <span className="text-[5.8pt] uppercase tracking-[0.16em] text-white/85">Änderungsschneiderei</span>
+              </div>
+              <div className="flex flex-1 gap-[4mm]" style={{ padding: "3mm 4mm" }}>
+                <div className="qr shrink-0 self-center" style={{ width: "27mm", height: "27mm" }} dangerouslySetInnerHTML={{ __html: qr }} />
+                <div className="flex min-w-0 flex-col text-[7pt] leading-snug text-[#2A2522]">
+                  <p
+                    className="self-start rounded-full px-[2.5mm] py-[0.6mm] text-[14pt] font-semibold leading-none"
+                    style={{ background: brand.yellow, color: brand.teal, printColorAdjust: "exact", WebkitPrintColorAdjust: "exact" }}
+                  >
+                    {partner.discount}
+                  </p>
+                  <p className="mt-[1.2mm] font-medium text-[#0A0908]">auf Ihre {service}</p>
+                  <p className="mt-[0.8mm]">QR scannen, Code im Laden zeigen.</p>
+                  <p className="mt-auto text-[6pt] text-[#635B52]">
+                    Empfohlen von {partner.name}
+                    <br />
+                    {business.address.full} · {business.phone}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </section>
+          ))}
+        </section>
+      )}
     </div>
   );
 }

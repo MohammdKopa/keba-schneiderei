@@ -38,6 +38,7 @@ export default async function LadenPage({ searchParams }: { searchParams: Promis
 
   const partners = listPartnerStats();
   const recent = recentRedemptions();
+  const activeCount = partners.filter((p) => p.active).length;
 
   return (
     <Shell
@@ -53,6 +54,11 @@ export default async function LadenPage({ searchParams }: { searchParams: Promis
 
       <section className="mt-14">
         <SectionTitle de="Partner" ar="الشركاء" />
+        {activeCount > 0 && (
+          <Link href="/laden/flyer" className="btn btn-ink mb-4 w-full">
+            <span>Alle Flyer drucken ({activeCount})</span>
+          </Link>
+        )}
         {partners.length === 0 ? (
           <p className="text-sm text-[var(--color-ink-mute)]">Noch keine Partner. Unten den ersten anlegen.</p>
         ) : (
@@ -73,6 +79,7 @@ export default async function LadenPage({ searchParams }: { searchParams: Promis
                     Flyer
                   </Link>
                 </div>
+                {p.address && <p className="mt-1 text-sm text-[var(--color-ink-mute)]">{p.address}</p>}
                 <div className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-[var(--color-ink-soft)]">
                   <span>{p.issued} {p.issued === 1 ? "Code" : "Codes"}</span>
                   <span>
