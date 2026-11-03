@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { getCode, getPartnerBySlug } from "@/lib/partners/db";
-import { codeCookieName, isCodeUsable, kindCopy } from "@/lib/partners/codes";
+import {
+  alterationPrices,
+  codeCookieName,
+  discountPercent,
+  formatPrice,
+  isCodeUsable,
+  kindCopy,
+} from "@/lib/partners/codes";
 import { business, openingHours } from "@/lib/business";
 import ClaimCode from "./ClaimCode";
 import KebaMark, { brand } from "@/components/KebaMark";
@@ -31,6 +38,8 @@ export default async function PartnerLanding({ params }: { params: Promise<{ slu
     savedCode && savedCode.partnerId === partner.id && isCodeUsable(savedCode, true) ? savedCode : null;
 
   const copy = kindCopy[partner.kind];
+  // A paused partner's offer has ended, so its page lists normal prices only.
+  const percent = partner.active ? discountPercent(partner.discount) : null;
 
   return (
     <section className="min-h-screen bg-[var(--color-paper)]">
@@ -78,6 +87,52 @@ export default async function PartnerLanding({ params }: { params: Promise<{ slu
           <Navigation size={20} style={{ color: brand.yellow }} aria-hidden />
           Route planen
         </a>
+
+        {partner.kind === "mode" && (
+          <div className="mt-10">
+            <p className="eyebrow mb-3">Unsere Preise</p>
+            <table className="w-full border-y border-[var(--color-rule)] text-left">
+              <thead>
+                <tr className="text-xs text-[var(--color-ink-mute)]">
+                  <th scope="col" className="py-2 font-normal">
+                    <span className="sr-only">Änderung</span>
+                  </th>
+                  <th scope="col" className="whitespace-nowrap py-2 pl-3 text-right font-normal">
+                    Normal
+                  </th>
+                  {percent !== null && (
+                    <th scope="col" className="whitespace-nowrap py-2 pl-3 text-right font-medium">
+                      Mit Code
+                    </th>
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                {alterationPrices.map((item) => (
+                  <tr key={item.label} className="border-t border-[var(--color-rule)]">
+                    <td className="py-3">{item.label}</td>
+                    <td
+                      className={`whitespace-nowrap py-3 pl-3 text-right tabular-nums ${
+                        percent !== null ? "text-[var(--color-ink-mute)]" : "font-semibold"
+                      }`}
+                    >
+                      {formatPrice(item.cents, item.from)}
+                    </td>
+                    {percent !== null && (
+                      <td className="whitespace-nowrap py-3 pl-3 text-right font-semibold tabular-nums">
+                        {formatPrice(Math.round((item.cents * (100 - percent)) / 100), item.from)}
+                      </td>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="mt-3 text-xs leading-relaxed text-[var(--color-ink-mute)]">
+              Endpreise.{percent !== null && ` „Mit Code“ enthält Ihre ${partner.discount} Rabatt.`} Bei „ab“-Preisen
+              kommt es auf das Stück an.
+            </p>
+          </div>
+        )}
 
         <div className="mt-10 border-t border-[var(--color-rule)] pt-8 text-sm">
           <p className="eyebrow mb-3">So finden Sie uns</p>
