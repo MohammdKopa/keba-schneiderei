@@ -91,45 +91,33 @@ export default async function PartnerLanding({ params }: { params: Promise<{ slu
         {partner.kind === "mode" && (
           <div className="mt-10">
             <p className="eyebrow mb-3">Unsere Preise</p>
-            <table className="w-full border-y border-[var(--color-rule)] text-left">
-              <thead>
-                <tr className="text-xs text-[var(--color-ink-mute)]">
-                  <th scope="col" className="py-2 font-normal">
-                    <span className="sr-only">Änderung</span>
-                  </th>
-                  <th scope="col" className="whitespace-nowrap py-2 pl-3 text-right font-normal">
-                    Normal
-                  </th>
-                  {percent !== null && (
-                    <th scope="col" className="whitespace-nowrap py-2 pl-3 text-right font-medium">
-                      Mit Code
-                    </th>
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {alterationPrices.map((item) => (
-                  <tr key={item.label} className="border-t border-[var(--color-rule)]">
-                    <td className="py-3">{item.label}</td>
-                    <td
-                      className={`whitespace-nowrap py-3 pl-3 text-right tabular-nums ${
-                        percent !== null ? "text-[var(--color-ink-mute)]" : "font-semibold"
-                      }`}
-                    >
-                      {formatPrice(item.cents, item.from)}
-                    </td>
-                    {percent !== null && (
-                      <td className="whitespace-nowrap py-3 pl-3 text-right font-semibold tabular-nums">
+            <ul className="divide-y divide-[var(--color-rule)] border-y border-[var(--color-rule)]">
+              {alterationPrices.map((item) => (
+                <li key={item.label} className="flex items-center justify-between gap-3 py-3">
+                  <span>{item.label}</span>
+                  {percent !== null ? (
+                    <span className="flex shrink-0 items-center gap-2 tabular-nums">
+                      <del className="whitespace-nowrap text-sm text-[var(--color-ink-mute)]">
+                        {formatPrice(item.cents)}
+                      </del>
+                      <span
+                        className="whitespace-nowrap rounded-full px-2.5 py-1 text-sm font-semibold leading-none"
+                        style={{ background: brand.yellow, color: brand.teal }}
+                      >
                         {formatPrice(Math.round((item.cents * (100 - percent)) / 100), item.from)}
-                      </td>
-                    )}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                      </span>
+                    </span>
+                  ) : (
+                    <span className="whitespace-nowrap font-semibold tabular-nums">
+                      {formatPrice(item.cents, item.from)}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
             <p className="mt-3 text-xs leading-relaxed text-[var(--color-ink-mute)]">
-              Endpreise.{percent !== null && ` „Mit Code“ enthält Ihre ${partner.discount} Rabatt.`} Bei „ab“-Preisen
-              kommt es auf das Stück an.
+              Endpreise.{percent !== null && " Der gelbe Preis gilt mit Ihrem Code."} Bei „ab“-Preisen kommt es auf das
+              Stück an.
             </p>
           </div>
         )}
